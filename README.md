@@ -58,10 +58,10 @@ Secure-File-Sharing-System/
 │   ├── templates/
 │   │   └── ...                  # HTML Templates (base.html, index.html, dashboard.html, share.html)
 │   └── routes.py                # Flask routes and view logic (Auth, Upload, Download, Share)
-├── config.py                  # Application configuration
-├── run.py                     # Application entry point
-├── requirements.txt           # Python dependencies
-└── README.md                  # Project documentation.
+├── config.py                    # Application configuration
+├── run.py                       # Application entry point
+├── requirements.txt             # Python dependencies
+└── README.md                    # Project documentation.
 ```
 
 ---
