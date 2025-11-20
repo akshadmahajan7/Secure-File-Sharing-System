@@ -95,7 +95,7 @@ pip install -r requirements.txt
 ```
 
 4. Configuration:
-  * Set up your PostgreSQL database (create a DB, user, and password).
+  * Set up your PostgreSQL/MySql database (create a DB, user, and password).
   * Create a `.env` file based on `.env.example` and fill in your `SECRET_KEY` and `DATABASE_URL`.
 
 ### **Running the Application**
