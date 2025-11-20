@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Login & Register{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1 class="text-center mb-4 text-primary display-4"><i class="fas fa-shield-alt me-3"></i> Secure File Sharing System</h1>
+        <p class="text-center text-muted mb-5 lead">Confidentiality guaranteed: files are secured using <strong>AES-256</strong> and key exchange via <strong>RSA</strong>.</p>
+    </div>
+</div>
+
+<div class="row g-4" id="login-section">
+    
+    <!-- Login Form -->
+    <div class="col-md-6">
+        <div class="card shadow-xl border-primary h-100">
+            <div class="card-header bg-primary text-white p-3">
+                <h4 class="mb-0"><i class="fas fa-sign-in-alt me-2"></i> User Login</h4>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" action="{{ url_for('main.login') }}">
+                    <div class="mb-4">
+                        <label for="loginUsername" class="form-label fw-bold">Username</label>
+                        <input type="text" class="form-control form-control-lg rounded-pill" id="loginUsername" name="username" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="loginPassword" class="form-label fw-bold">Password</label>
+                        <input type="password" class="form-control form-control-lg rounded-pill" id="loginPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 mt-3 rounded-pill shadow">Log In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Registration Form -->
+    <div class="col-md-6">
+        <div class="card shadow-xl border-success h-100">
+            <div class="card-header bg-success text-white p-3">
+                <h4 class="mb-0"><i class="fas fa-user-plus me-2"></i> Register New Account</h4>
+            </div>
+            <div class="card-body p-4">
+                <p class="text-muted small">An <strong>RSA Key Pair</strong> is <strong>automatically generated</strong> for file encryption on account creation.</p>
+                <form method="POST" action="{{ url_for('main.register') }}">
+                    <div class="mb-3">
+                        <label for="regUsername" class="form-label fw-bold">Username</label>
+                        <input type="text" class="form-control rounded-pill" id="regUsername" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="regEmail" class="form-label fw-bold">Email</label>
+                        <input type="email" class="form-control rounded-pill" id="regEmail" name="email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="regPassword" class="form-label fw-bold">Password</label>
+                        <input type="password" class="form-control rounded-pill" id="regPassword" name="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg w-100 rounded-pill shadow">Create Secure Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

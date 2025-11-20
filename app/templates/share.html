@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Share File: {{ file.filename }}{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-lg border-warning">
+            <div class="card-header bg-warning text-dark p-3">
+                <h3 class="mb-0"><i class="fas fa-share-alt me-2"></i>Securely Share File</h3>
+            </div>
+            <div class="card-body p-4">
+                <h4 class="card-title text-primary mb-3">File: <strong>{{ file.filename }}</strong></h4>
+                <p class="card-text text-muted small">Owner: {{ file.owner.username }}</p>
+                <hr>
+                
+                <p class="alert alert-info shadow-sm p-3">
+                    The file's decryption key will be re-encrypted using the recipient's **Public RSA Key** to ensure only they can access it.
+                </p>
+                
+                <form method="POST" action="{{ url_for('main.share_file', file_id=file.id) }}">
+                    <div class="mb-4">
+                        <label for="recipientUsername" class="form-label fw-bold">Recipient Username</label>
+                        <input type="text" class="form-control form-control-lg rounded-pill" id="recipientUsername" name="recipient_username" placeholder="Enter recipient's username" required>
+                        <div class="form-text">The recipient must have a registered account to receive the encrypted key.</div>
+                    </div>
+                    <div class="d-grid gap-3">
+                        <button type="submit" class="btn btn-warning btn-lg shadow">
+                            <i class="fas fa-paper-plane me-2"></i>Grant Access
+                        </button>
+                        <a href="{{ url_for('main.dashboard') }}" class="btn btn-outline-secondary btn-lg">Cancel and Go Back</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

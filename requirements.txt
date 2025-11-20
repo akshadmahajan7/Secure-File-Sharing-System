@@ -1,0 +1,20 @@
+# Core Flask Framework
+Flask==2.3.3
+gunicorn  # For production deployment
+
+# Dependency Fix: Pin Werkzeug to a version compatible with Flask-Login 0.6.x
+# Werkzeug 2.3.8 fixes the 'url_decode' error when combined with Flask-Login 0.6.x
+Werkzeug==2.3.8
+
+# Database & ORM
+Flask-SQLAlchemy==3.0.5  # ORM for database interaction
+PyMySQL==1.0.3           # MySQL Adapter
+Flask-Migrate==4.0.5     # Database migrations
+
+# Security & Cryptography
+cryptography==41.0.4 
+Flask-Login==0.6.3       # Must be 0.6.x to work with the pinned Werkzeug
+Flask-Bcrypt==1.0.1
+
+# Utilities
+python-dotenv==1.0.0     # For loading configuration from .env file
